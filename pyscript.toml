@@ -1,0 +1,11 @@
+name = "iRacing Stint Analyzer"
+packages = ["matplotlib", "pandas", "seaborn", "plotly"]
+
+[files]
+"./python/StintAnalyzer.py" = ""
+"./python/TrackData.py" = ""
+"./python/Params.py" = ""
+"./python/PlotlyConfig.py" = ""
+"./python/stint1.csv" = ""
+"./python/stint2.csv" = ""
+

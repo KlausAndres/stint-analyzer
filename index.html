@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="descpription" content="A Stint Analyzer for iRacing.">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./ass/favicon.png">
+
+    <link rel="stylesheet" href="/styles/main.css"/>
+
+    <link rel="stylesheet" href="./pyscript_offline/pyscript/core.css">
+    <script type="module" src="./pyscript_offline/pyscript/core.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <title>iRacing Stint Analyzer</title>
+
+    <!-- for splashscreen--> 
+    <style>
+        #loading { outline: none; border: none; background: transparent }
+    </style>
+    <script type="module">
+        const loading = document.getElementById('loading');
+        addEventListener('py:ready', () => loading.close());
+        loading.showModal();
+    </script>
+</head>
+
+<body>
+
+    <dialog id="loading" class="loading">
+        <p>Loading ... just a moment</p>
+    </dialog>
+  
+    <div class="container">
+        <header class="header">
+            <p><span class="underline_italic">iRacing</span> <span class="color_red">StintAnalyzer</span></p>
+        </header>
+
+        <nav class="button-container">
+            <button class="button" type="button" id="how_to" py-click="how_to">HOW TO</button>
+            <button class="button" type="button" id="import_stint" py-click="import_stint">IMPORT STINT</button>            
+            <button class="button" type="button" id="laptime" py-click="laptime">LAPTIME</button>
+            <button class="button" type="button" id="speed" py-click="speed">SPEED</button>
+            <button class="button" type="button" id="computer_performance" py-click="computer_performance">COMPUTER PERFORMANCE</button>
+            <button class="button" type="button" id="general_conditions" py-click="general_conditions">GENERAL CONDITIONS</button>
+            <button class="button" type="button" id="car_setup" py-click="car_setup">CAR SETUP</button>
+            <button class="button" type="button" id="fuel" py-click="fuel">FUEL</button>
+            <button class="button" type="button" id="tyre_pressure" py-click="tyre_pressure">TIRE PRESSURE</button>
+            <button class="button" type="button" id="tyre_temp" py-click="tyre_temp">TIRE TEMP</button>
+            <button class="button" type="button" id="ride_height" py-click="ride_height">RIDE HEIGHT</button>
+            <button class="button" type="button" id="brake" py-click="brake">BRAKE</button>
+            <button class="button" type="button" id="throttle" py-click="throttle">THROTTLE</button>
+        </nav>
+
+        <hr>
+
+        <div class="import" id="import">
+            <button class="button" type="button" id="analyze_demo_data" py-click="analyze_demo_data" style="display: block; margin-bottom: 30px;">ANALYZE DEMO DATA</button>
+
+            <ol>
+                <li>
+                    <label for="upload_1">Stint File Upload:</label>
+                    <input type="file" name="upload_1" id="upload_1">
+                </li>
+                <li style="margin-top: 15px;">
+                    <label for="upload_2">Stint File Upload:</label>
+                    <input type="file" name="upload_2" id="upload_2">
+                </li>
+            </ol>
+
+            <div style="display: inline-block; margin-top: 20px; margin-right: 30px;">
+                Delete Laps Stint 1
+                <input type="text" id="inp_del_laps_df1">
+                <button type="button" id="btn_del_laps_df1" py-click="del_laps_df1">Delete</button>
+            </div>
+
+            <div style="display: inline-block">
+                Delete Laps Stint 2
+                <input type="text" id="inp_del_laps_df2">
+                <button type="button" id="btn_del_laps_df2" py-click="del_laps_df2">Delete</button>
+            </div>
+
+            <button class="button" type="button" id="analyze_data" py-click="analyze_data" style="display: block; margin-top: 30px; margin-bottom: 30px;">ANALYZE DATA</button>
+
+            <section style="margin-bottom: 30px;">
+                <div id="session_data_df1" class="session_data" style="display: inline-block;"></div>
+                <div id="session_data_df2" class="session_data" style="display: inline-block"></div>
+            </section>
+
+            <section>
+                <div id="laps_df1" class="laps_df1" style="display: inline-block;"></div>
+                <div id="laps_df2" class="laps_df2" style="display: inline-block"></div>
+            </section>
+        </div>
+
+        <section class="output-container">
+            <div id="output" class="output"></div>
+        </section>
+    </div>
+
+    <script type="py" src="./python/main.py" config="./pyscript.toml"></script>
+
+</body>
+</html>

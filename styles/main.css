@@ -1,0 +1,153 @@
+:root{
+    --color_red: #FD2826;
+    --color_blue: #1E4488;
+    --color_orange: #FF6600;
+    --color_yellow: #FFCC00;
+    --color_green: #33CC00;
+    --color_cyan: #00CCCC;
+    --color_grey: #676767;
+    --color_black: #000000;
+    --color_white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 0.9em; 
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.loading {
+    color: var(--color_blue);
+    font-weight: 400;
+    font-size: 2.0rem;
+}
+
+.container {
+    min-width: 1rem;
+    max-width: 999rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color_blue);
+    color: var(--color_white);
+    font-size: 2.0rem;
+    font-weight: 600;
+    vertical-align: middle;
+    height: 6.5rem;
+}
+
+.color_red {
+    color: var(--color_red);
+}
+
+.underline_italic {
+    text-decoration: underline;
+    font-style:italic;
+}
+
+.button-container {
+    display: flex;
+    height: 6.0rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    border: none;
+    background-color: var(--color_white);
+    color: var(--color_blue);
+    font-weight: 400;
+    font-size: 1.1rem;
+    flex: 1 1 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.button:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border-top: 1px solid var(--color_blue);
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+.import {
+    display: none;
+}
+
+.output {
+    display: block;
+    width: 90%;
+    max-width: 2000px;
+    margin: auto;
+}
+
+.session_data {
+    color: var(--color_blue)
+}
+
+
+
+/* very small 0px 
+@media (min-width: 0em) {
+    .output {
+        width: 100%;    }
+}
+
+
+
+/* small 576px 
+@media (min-width: 36em) {
+    .output {
+        width: 95%;
+    }
+}
+
+/* medium 768px 
+@media (min-width: 48em) {
+    .output {
+        width: 90%;
+    }
+
+}
+
+/* large 992px 
+@media (min-width: 62em) {
+    .output {
+        width: 85%;    
+    }
+
+}
+
+/* very large 1200px 
+@media (min-width: 75em) {
+    .output {
+        width: 80%;
+    }
+
+}
+
+/* very very large 1400px 
+@media (min-width: 87.5em) {
+    .output {
+        max-width: 2400px;
+        width: 75%;
+    }
+} */
